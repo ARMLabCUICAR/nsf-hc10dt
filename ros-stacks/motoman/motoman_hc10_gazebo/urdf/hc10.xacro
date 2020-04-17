@@ -1,0 +1,21 @@
+<?xml version="1.0" ?>
+<robot name="motoman_hc10" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_macro.xacro"/>
+  <xacro:include filename="$(find motoman_hc10_gazebo)/urdf/hc10_macro.xacro"/>
+  <xacro:motoman_hc10 prefix=""/>
+  <xacro:motoman_hc10_g prefix=""/>
+
+  <!-- fix to gazebo world -->
+  <link name="world"/>
+  <joint name="world-base_link" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+  </joint>
+
+  <!-- ros_control plugin -->
+  <gazebo>
+    <plugin name="gazebo_ros_control" filename="libgazebo_ros_control.so">
+      <robotSimType>gazebo_ros_control/DefaultRobotHWSim</robotSimType>
+    </plugin>
+  </gazebo>
+</robot>
