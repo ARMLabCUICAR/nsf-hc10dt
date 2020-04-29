@@ -1,5 +1,17 @@
 
 
+This is a tutorial.
+
+
+#### Commands
+
+**Gazebo** `roslaunch motoman_hc10_gazebo hc10dt_gazebo.launch`
+
+**MoveIt!** `roslaunch motoman_hc10dt_moveit_config moveit_planning_execution.launch`
+
+**python** `rosrun move_hc0dt trial.py`
+
+
 #### Git Workflow
 
 ##### Forking
