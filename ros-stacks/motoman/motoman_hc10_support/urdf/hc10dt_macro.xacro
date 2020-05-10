@@ -2,6 +2,13 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
   <xacro:macro name="motoman_hc10dt" params="prefix">
 
+  <!-- Adhiti Additions -->
+
+  <xacro:arg name="gpu" default="false"/>
+  <xacro:property name="gpu" value="$(arg gpu)" />
+
+  <!-- end -->
+
     <!-- Properties -->
     <material name="yaskawa_blue">
       <color rgba="0.12941 0.14902 0.74902 1" />
@@ -133,6 +140,9 @@
     <link name="${prefix}tool0"/>
     <!-- end of link list -->
 
+
+  <!-- end -->
+
     <!-- joint list -->
     <joint name="${prefix}joint_1_s" type="revolute">
       <parent link="${prefix}base_link"/>
@@ -190,5 +200,15 @@
       <parent link="${prefix}base_link"/>
       <child link="${prefix}base"/>
     </joint>
+
+  <!-- Adding the lidar marcos -->
+
+    <xacro:include filename="$(find velodyne_description)/urdf/VLP-16.urdf.xacro"/>
+
+    <VLP-16 parent="${prefix}tool0" name="velodyne" topic="/velodyne_points" hz="10" samples="440" gpu="${gpu}">
+      <origin xyz="0 0 0" rpy="0 0 0" />
+    </VLP-16>
+
+  <!-- end -->
   </xacro:macro>
 </robot>

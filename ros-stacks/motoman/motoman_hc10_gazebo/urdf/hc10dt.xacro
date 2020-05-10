@@ -5,6 +5,7 @@
   <xacro:motoman_hc10dt prefix=""/>
   <xacro:motoman_hc10_g prefix=""/>
 
+
   <!-- fix to gazebo world -->
   <link name="world"/>
   <joint name="world-base_link" type="fixed">

@@ -60,4 +60,7 @@
     <disable_collisions link1="link_4_r" link2="link_5_b" reason="Adjacent" />
     <disable_collisions link1="link_4_r" link2="link_6_t" reason="Never" />
     <disable_collisions link1="link_5_b" link2="link_6_t" reason="Adjacent" />
+    <!-- Disabling the lidar collisions -->
+    <disable_collisions link1="link_6_t" link2="velodyne_base_link" reason="Adjacent" />
+    <disable_collisions link1="velodyne_base_link" link2="velodyne" reason="Adjacent" />
 </robot>

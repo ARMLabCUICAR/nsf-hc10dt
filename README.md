@@ -1,7 +1,6 @@
 
 
-This is a tutorial.
-
+This repository contains the gazebo model and MoveIt! plugins for the Motoman HC10-DT with a Velodyne VLP-16 lidar as an end-effector for 3D mapping. 
 
 #### Commands
 
@@ -52,11 +51,11 @@ Next you should look at your **branches** and create a new one for your next dev
 
     ~/git/nsf-hc10dt$ git branch # inspect branches, master is current
     * master
-
+    
     $ git branch dev-1.1 #create branch fix-otto-colors
     $ git checkout dev-1.1 # check out branch fix-otto-colors
     $ git branch # inspect branches, fix-otto-colors is current
-    * fix-otto-colors
+    * dev-1.1
       master
 
 Now go make some changes to fix the colors, test them, **add** them, and **commit** them. Assuming that you only changed the XACRO macro for OTTO:
@@ -67,22 +66,24 @@ Now go make some changes to fix the colors, test them, **add** them, and **commi
     commit xxxxxxx...
     Author: User Name <user@clemson.edu>
     Date:   ...
-
+    
     fix otto colors
 
-Repeat this edit/test/commit cycle until you're ready to share your changes.Then **push** your topic branch to your fork remember that the **remote** alias for your fork is `origin`.
+Repeat this edit/test/commit cycle until you're ready to share your changes. Then **push** your topic branch to your fork remember that the **remote** alias for your fork is `origin`.
 
-    ~/git/nsf-hc10dt$ git push origin fix-otto-colors
+    ~/git/nsf-hc10dt$ git push origin dev-1.1
 
 Finally, after making all the changes, merge the branch with the master. 
 
 
     ~/git/nsf-hc10dt$ git checkout master
-    ~/git/nsf-hc10dt$ git merge fix-orro-colors
+    ~/git/nsf-hc10dt$ git merge dev-1.1
 
-Delete the branch after merging
+In the browser GUI, you will see a new pull request to merge the branches. Click on the pull request and accept it. Resolve the conflicts - if there are any - and merge the branches with comments if needed. 
 
-    ~/git/nsf-hc10dt$ git branch -d hotfix
+Now delete the branch after merging. 
+
+    ~/git/nsf-hc10dt$ git branch -d dev-1.1
 
 
 ##### Pull Requests
@@ -111,7 +112,7 @@ ros_ws/
 ```
 
 ##### Adding packages to the src directory in this workspace
- 
+
 We'll do this by going into src and creating symbolic links to the desired ROS packages or stacks that we've cloned from Git repositories.
 
 ```
