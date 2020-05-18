@@ -11,6 +11,36 @@ This repository contains the gazebo model and MoveIt! plugins for the Motoman HC
 **python** `rosrun move_hc0dt trial.py`
 
 
+
+#### Dependencies
+
+Ensure that the following package dependencies are installed in your system:
+
+- ros-kinetic-ros-control
+- ros-kinetic-ros-controllers
+- ros-kinetic-controller-interface
+- ros-kinetic-controller-manager
+- ros-kinetic-controller-manager-msgs
+- ros-kinetic-gazebo-ros
+- ros-kinetic-gazebo-ros-control
+- ros-kinetic-joint-state-controller
+- ros-kinetic-joint-trajectory-controller
+- ros-kinetic-effort-controllers
+- ros-kinetic-velocity-controllers
+
+
+
+#### Known Errors
+
+```
+[ERROR] [1589821347.035206609, 0.367000000]: No p gain specified for pid.  Namespace: /gazebo_ros_control/pid_gains/joint_1_s
+```
+
+This is not really an error. The PID parameters are optional if you are using gazebo_ros_control. The error comes because when initializing RobotHWSim, the robot_ros_control tries to load the pid_gains. Basically, if pid parameters were found, gazebo_ros_control will use pid controllers in ROS to control the joints (velocity or position) by effort. Otherwise, the joints will be controlled with gazebo methods.
+
+https://answers.ros.org/question/293830/what-is-the-fix-for-no-p-gain-specified-for-pid-namespace-gazebo_ros_controlpid_gainsback_right_wheel_joint-ros-melodic/
+
+
 #### Git Workflow
 
 ##### Forking
