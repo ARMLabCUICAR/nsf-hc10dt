@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-  <arg name="variant" default="dt" doc="Either blank or dt" />
-  <param name="robot_description" command="$(find xacro)/xacro --inorder '$(find motoman_hc10_gazebo)/urdf/hc10$(arg variant).xacro'" />
-</launch>
