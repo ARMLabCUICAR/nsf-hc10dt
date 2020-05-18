@@ -95,7 +95,7 @@
   </gazebo>
   <gazebo reference="${prefix}tool0">
     <material>Gazebo/Orange</material>
-    <turnGravityOff>true</turnGravityOff>
+    <turnGravityOff>false</turnGravityOff>
   </gazebo>
 </xacro:macro>
 </robot>
